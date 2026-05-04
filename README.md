@@ -1,2 +1,2 @@
 # VaR-assignment
-Python implementation of fixed-income risk analytics. Calculates duration, convexity, and VaR via Delta-Normal and Delta-Gamma approaches. Simulates yield shocks to estimate return distributions and analyze non-linear effects and tail risk. Developed as a solution for coursework at Lund University
+Python project for fixed-income risk modeling. Computes duration, modified duration, convexity, and VaR using Delta-Normal and Delta-Gamma methods. Simulates yield changes to approximate return distributions and compare linear vs non-linear risk, highlighting convexity effects on tail risk. Developed as a solution for coursework at Lund University
