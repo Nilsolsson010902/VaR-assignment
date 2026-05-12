@@ -9,7 +9,7 @@ class Bond:
         coupon_payment = self.N * self.c
 
         coupon_price = 0
-        for t in range(1, self.T + 1):
+        for t in range(1, int(self.T )+ 1):
             coupon_price += coupon_payment / ((1 + self.ytm) ** t)
 
         nominal_price = self.N / ((1 + self.ytm) ** self.T)
@@ -21,29 +21,29 @@ class Bond:
         duration = 0
         coupon = self.N * self.c
 
-        for t in range(1, self.T + 1):
+        for t in range(1, int(self.T) + 1):
             cf = coupon
             if t == self.T:
                 cf += self.N 
 
             
-            duration += t * ( cf / (1 + self.y) ** t)
+            duration += t * ( cf / (1 + self.ytm) ** t)
 
         return duration / P
     
     def modified_duration(self):
-        return self.macaulay_duration() / (1 + self.y)
+        return self.macaulay_duration() / (1 + self.ytm)
     
     def convexity(self):
         P = self.price()
         coupon = self.N * self.c
         convexity_sum = 0
 
-        for t in range(1, self.T + 1):
+        for t in range(1, int(self.T) + 1):
             cf = coupon
             if t == self.T:
                 cf += self.N
 
-            convexity_sum += t * (t + 1) * cf / ((1 + self.y) ** (t + 2))
+            convexity_sum += t * (t + 1) * cf / ((1 + self.ytm) ** (t + 2))
 
         return convexity_sum / P
