@@ -5,6 +5,9 @@ class Bond:
         self.c = coupon_rate
         self.N = nominal_amount
 
+    def get_ytm(self):
+        return self.ytm
+
     def price(self):
         coupon_payment = self.N * self.c
 
@@ -41,7 +44,8 @@ class Bond:
 
         for t in range(1, int(self.T) + 1):
             cf = coupon
-            if t == self.T:
+
+            if t == int(self.T):
                 cf += self.N
 
             convexity_sum += t * (t + 1) * cf / ((1 + self.ytm) ** (t + 2))
